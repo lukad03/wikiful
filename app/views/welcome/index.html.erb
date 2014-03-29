@@ -1,2 +1,13 @@
 <h1>Welcome to Wikiful</h1>
-<p>Pretty soon you'll be able to find a full-fledged Fakipedia here.</p>
+<p>Here are some recent articles for you.</p>
+  <% @recent_articles.each do |article| %>
+  <div id="article-<%= article.id %>">
+    <h1><%= link_to article.title, article %></h1>
+    <p><%= truncate(article.content, length: 200) %></p>
+    <p>Published on <%= article.created_at.strftime('%b %d, %Y') %></p>
+    <p>Filed under: <% article.categories.each do |category| %>
+      <%= category.name %>&nbsp;
+      <% end %>
+    </p>
+  </div>
+  <% end %>
