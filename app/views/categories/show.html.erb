@@ -1,0 +1,11 @@
+<h1>This is the show view for Categories</h1>
+<div>
+  <h1><%= @category.name %></h1>
+  <% @articles.each do |article| %>
+  <div id="article-<%= article.id %>">
+    <h1><%= link_to article.title, article %></h1>
+    <p><%= truncate(article.content, length: 200) %></p>
+    <p>Published on <%= article.created_at.strftime('%b %d, %Y') %></p>
+  </div>
+  <% end %>
+</div>
