@@ -1,4 +1,9 @@
 Wikiful::Application.routes.draw do
+  resources :sessions
+  get 'singup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
   resources :users
 
   get "welcome/index"
